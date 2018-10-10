@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina3_5" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Lab_4" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yp6-eB-CRi">
+                                <rect key="frame" x="0.0" y="276" width="480" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="New Worry" id="Z9J-OZ-tgf">
+                                        <connections>
+                                            <segue destination="Gwb-Yb-cwI" kind="presentation" identifier="worryInfo" id="vR4-ar-5Im"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="DA7-mj-TsG">
+                                <rect key="frame" x="167.5" y="26" width="300" height="228"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="GhG-Mi-NuS">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="228"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="rMm-fz-tva">
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="89"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Past worry:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7AS-JD-Mmk">
+                                                        <rect key="frame" x="93" y="0.0" width="114" height="29"/>
+                                                        <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="23"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="N/A" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cQe-qj-SSF">
+                                                        <rect key="frame" x="0.0" y="59" width="300" height="30"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="5Bg-Vh-qGb"/>
+                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="XvM-9H-sJ7"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="hC7-Ei-QyE">
+                                                <rect key="frame" x="0.0" y="139" width="300" height="89"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Why it's no longer a worry: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PIB-gq-zzF">
+                                                        <rect key="frame" x="6.5" y="0.0" width="287.5" height="29"/>
+                                                        <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="23"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="N/A" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s1l-xy-UfK">
+                                                        <rect key="frame" x="0.0" y="59" width="300" height="30"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="fHj-V4-GnJ"/>
+                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="r7V-1p-OgZ"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="GhG-Mi-NuS" firstAttribute="centerY" secondItem="DA7-mj-TsG" secondAttribute="centerY" id="Hkp-iE-iu0"/>
+                                    <constraint firstItem="GhG-Mi-NuS" firstAttribute="centerY" secondItem="DA7-mj-TsG" secondAttribute="centerY" id="gPg-9o-e8m">
+                                        <variation key="heightClass=compact-widthClass=regular" constant="0.0"/>
+                                    </constraint>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Hkp-iE-iu0"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=compact">
+                                    <mask key="constraints">
+                                        <exclude reference="Hkp-iE-iu0"/>
+                                        <exclude reference="gPg-9o-e8m"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=regular">
+                                    <mask key="constraints">
+                                        <exclude reference="gPg-9o-e8m"/>
+                                    </mask>
+                                </variation>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let it go!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U2E-z5-05H">
+                                <rect key="frame" x="16" y="116" width="143.5" height="43.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43.5" id="drq-9R-343"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="35"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="drq-9R-343"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="drq-9R-343"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="0.72156862745098038" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="GhG-Mi-NuS" secondAttribute="trailing" constant="12.5" id="6vd-Zc-Oab"/>
+                            <constraint firstItem="U2E-z5-05H" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="120" id="Af7-SO-ZQo"/>
+                            <constraint firstItem="U2E-z5-05H" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="116" id="CGl-8B-KNo"/>
+                            <constraint firstItem="GhG-Mi-NuS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="167" id="EGg-Wa-15V"/>
+                            <constraint firstItem="U2E-z5-05H" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="115" id="I3D-9I-IoO"/>
+                            <constraint firstItem="U2E-z5-05H" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="KWM-42-pkA">
+                                <variation key="heightClass=regular-widthClass=compact" constant="12"/>
+                            </constraint>
+                            <constraint firstItem="GhG-Mi-NuS" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="Uw1-3a-ZSs"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="U2E-z5-05H" secondAttribute="trailing" constant="320.5" id="WkU-Z5-bgi"/>
+                            <constraint firstItem="GhG-Mi-NuS" firstAttribute="leading" secondItem="U2E-z5-05H" secondAttribute="trailing" constant="114.66666666666663" id="bGZ-2o-cQv"/>
+                            <constraint firstItem="U2E-z5-05H" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="25" id="bPt-1b-wst"/>
+                            <constraint firstItem="DA7-mj-TsG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="g7s-mV-PKC"/>
+                            <constraint firstItem="U2E-z5-05H" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="gGY-Vj-VhI"/>
+                            <constraint firstItem="U2E-z5-05H" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="hLS-p2-R6K">
+                                <variation key="heightClass=compact-widthClass=regular" constant="-20"/>
+                            </constraint>
+                            <constraint firstItem="DA7-mj-TsG" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="k7N-Ej-8li">
+                                <variation key="heightClass=compact-widthClass=compact" constant="-20"/>
+                            </constraint>
+                            <constraint firstItem="DA7-mj-TsG" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="lwp-e6-U7t">
+                                <variation key="heightClass=compact-widthClass=regular" constant="-20"/>
+                            </constraint>
+                            <constraint firstItem="DA7-mj-TsG" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="pQP-ya-YbG"/>
+                            <constraint firstItem="U2E-z5-05H" firstAttribute="leading" secondItem="GhG-Mi-NuS" secondAttribute="trailing" constant="-221.5" id="ymP-kY-3We"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="6vd-Zc-Oab"/>
+                                <exclude reference="WkU-Z5-bgi"/>
+                                <exclude reference="Af7-SO-ZQo"/>
+                                <exclude reference="CGl-8B-KNo"/>
+                                <exclude reference="I3D-9I-IoO"/>
+                                <exclude reference="gGY-Vj-VhI"/>
+                                <exclude reference="hLS-p2-R6K"/>
+                                <exclude reference="ymP-kY-3We"/>
+                                <exclude reference="k7N-Ej-8li"/>
+                                <exclude reference="lwp-e6-U7t"/>
+                                <exclude reference="EGg-Wa-15V"/>
+                                <exclude reference="Uw1-3a-ZSs"/>
+                                <exclude reference="bGZ-2o-cQv"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="6vd-Zc-Oab"/>
+                                <include reference="WkU-Z5-bgi"/>
+                                <include reference="CGl-8B-KNo"/>
+                                <exclude reference="KWM-42-pkA"/>
+                                <exclude reference="bPt-1b-wst"/>
+                                <include reference="gGY-Vj-VhI"/>
+                                <exclude reference="g7s-mV-PKC"/>
+                                <include reference="k7N-Ej-8li"/>
+                                <exclude reference="pQP-ya-YbG"/>
+                                <exclude reference="EGg-Wa-15V"/>
+                                <exclude reference="Uw1-3a-ZSs"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact-widthClass=regular">
+                            <mask key="constraints">
+                                <include reference="I3D-9I-IoO"/>
+                                <exclude reference="KWM-42-pkA"/>
+                                <exclude reference="bPt-1b-wst"/>
+                                <include reference="hLS-p2-R6K"/>
+                                <exclude reference="g7s-mV-PKC"/>
+                                <include reference="lwp-e6-U7t"/>
+                                <exclude reference="pQP-ya-YbG"/>
+                                <include reference="bGZ-2o-cQv"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="ymP-kY-3We"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <mask key="constraints">
+                                <include reference="Af7-SO-ZQo"/>
+                                <exclude reference="bPt-1b-wst"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="pastReason" destination="s1l-xy-UfK" id="zOP-zE-g0A"/>
+                        <outlet property="pastWorry" destination="cQe-qj-SSF" id="45o-cr-nSk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="33.75" y="25"/>
+        </scene>
+        <!--Scene2 View Controller-->
+        <scene sceneID="pfe-Ba-l80">
+            <objects>
+                <viewController id="Gwb-Yb-cwI" customClass="Scene2ViewController" customModule="Lab_4" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HpU-lW-GJY">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pr8-br-fB8">
+                                <rect key="frame" x="0.0" y="276" width="480" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Let it go!" id="xz5-AF-jni">
+                                        <connections>
+                                            <segue destination="4tg-51-YWj" kind="unwind" identifier="doneWorry" unwindAction="unwindSegue:" id="9qm-HS-WwE"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="TUM-2Z-7iD">
+                                <rect key="frame" x="90" y="47.5" width="300" height="225"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="rqu-Qa-342">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="87.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What's worrying you today?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="itF-Ko-1Tf">
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="27.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="Z3M-Ee-auH"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="22"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hRw-R3-aCr">
+                                                <rect key="frame" x="0.0" y="57.5" width="300" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="crK-QO-Juw"/>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="i09-xa-dYz"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="RdZ-Lw-Geh">
+                                        <rect key="frame" x="0.0" y="137.5" width="300" height="87.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Why it shouldn't worry you?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lG9-aL-UAd">
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="27.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="2TP-sj-71G"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="22"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oD9-Qs-Jum">
+                                                <rect key="frame" x="0.0" y="57.5" width="300" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="9ac-zW-hxy"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="Oxy-xg-uP8"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93904426712598399" green="0.97024399451375665" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="TUM-2Z-7iD" firstAttribute="centerX" secondItem="HpU-lW-GJY" secondAttribute="centerX" id="TUk-T5-Qaf"/>
+                            <constraint firstItem="TUM-2Z-7iD" firstAttribute="centerY" secondItem="HpU-lW-GJY" secondAttribute="centerY" id="lo4-zc-P10">
+                                <variation key="heightClass=regular-widthClass=compact" constant="-30"/>
+                            </constraint>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="JLU-JA-dOR"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="bIG-gi-oXC" appends="YES" id="cIu-Aw-cWd"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="userReason" destination="oD9-Qs-Jum" id="acD-mM-SnB"/>
+                        <outlet property="userWorry" destination="hRw-R3-aCr" id="V59-fa-gJd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dko-Mi-H1P" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="4tg-51-YWj" userLabel="Exit" sceneMemberID="exit"/>
+                <tapGestureRecognizer id="bIG-gi-oXC"/>
+            </objects>
+            <point key="canvasLocation" x="1042.5" y="135"/>
+        </scene>
+    </scenes>
+</document>
