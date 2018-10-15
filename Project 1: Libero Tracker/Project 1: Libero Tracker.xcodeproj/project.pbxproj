@@ -7,27 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		04198F20216EB3DD00FB37D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04198F1F216EB3DD00FB37D8 /* AppDelegate.swift */; };
-		04198F22216EB3DD00FB37D8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04198F21216EB3DD00FB37D8 /* ViewController.swift */; };
-		04198F25216EB3DD00FB37D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04198F23216EB3DD00FB37D8 /* Main.storyboard */; };
-		04198F27216EB3DE00FB37D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04198F26216EB3DE00FB37D8 /* Assets.xcassets */; };
-		04198F2A216EB3DE00FB37D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04198F28216EB3DE00FB37D8 /* LaunchScreen.storyboard */; };
-		04198F32216FCB0400FB37D8 /* subTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04198F31216FCB0400FB37D8 /* subTracker.swift */; };
+		04198F40217303EB00FB37D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04198F3F217303EB00FB37D8 /* AppDelegate.swift */; };
+		04198F42217303EB00FB37D8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04198F41217303EB00FB37D8 /* ViewController.swift */; };
+		04198F45217303EB00FB37D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04198F43217303EB00FB37D8 /* Main.storyboard */; };
+		04198F47217303EC00FB37D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04198F46217303EC00FB37D8 /* Assets.xcassets */; };
+		04198F4A217303EC00FB37D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04198F48217303EC00FB37D8 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		04198F1C216EB3DC00FB37D8 /* Project 1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project 1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		04198F1F216EB3DD00FB37D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		04198F21216EB3DD00FB37D8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		04198F24216EB3DD00FB37D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		04198F26216EB3DE00FB37D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		04198F29216EB3DE00FB37D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		04198F2B216EB3DE00FB37D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		04198F31216FCB0400FB37D8 /* subTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = subTracker.swift; sourceTree = "<group>"; };
+		04198F3C217303EB00FB37D8 /* Project 1: Libero Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project 1: Libero Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		04198F3F217303EB00FB37D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		04198F41217303EB00FB37D8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		04198F44217303EB00FB37D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		04198F46217303EC00FB37D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		04198F49217303EC00FB37D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		04198F4B217303EC00FB37D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		04198F19216EB3DC00FB37D8 /* Frameworks */ = {
+		04198F39217303EB00FB37D8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -37,72 +35,71 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		04198F13216EB3DC00FB37D8 = {
+		04198F33217303EA00FB37D8 = {
 			isa = PBXGroup;
 			children = (
-				04198F31216FCB0400FB37D8 /* subTracker.swift */,
-				04198F1E216EB3DC00FB37D8 /* Project 1 */,
-				04198F1D216EB3DC00FB37D8 /* Products */,
+				04198F3E217303EB00FB37D8 /* Project 1: Libero Tracker */,
+				04198F3D217303EB00FB37D8 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		04198F1D216EB3DC00FB37D8 /* Products */ = {
+		04198F3D217303EB00FB37D8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				04198F1C216EB3DC00FB37D8 /* Project 1.app */,
+				04198F3C217303EB00FB37D8 /* Project 1: Libero Tracker.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		04198F1E216EB3DC00FB37D8 /* Project 1 */ = {
+		04198F3E217303EB00FB37D8 /* Project 1: Libero Tracker */ = {
 			isa = PBXGroup;
 			children = (
-				04198F1F216EB3DD00FB37D8 /* AppDelegate.swift */,
-				04198F21216EB3DD00FB37D8 /* ViewController.swift */,
-				04198F23216EB3DD00FB37D8 /* Main.storyboard */,
-				04198F26216EB3DE00FB37D8 /* Assets.xcassets */,
-				04198F28216EB3DE00FB37D8 /* LaunchScreen.storyboard */,
-				04198F2B216EB3DE00FB37D8 /* Info.plist */,
+				04198F3F217303EB00FB37D8 /* AppDelegate.swift */,
+				04198F41217303EB00FB37D8 /* ViewController.swift */,
+				04198F43217303EB00FB37D8 /* Main.storyboard */,
+				04198F46217303EC00FB37D8 /* Assets.xcassets */,
+				04198F48217303EC00FB37D8 /* LaunchScreen.storyboard */,
+				04198F4B217303EC00FB37D8 /* Info.plist */,
 			);
-			path = "Project 1";
+			path = "Project 1: Libero Tracker";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		04198F1B216EB3DC00FB37D8 /* Project 1 */ = {
+		04198F3B217303EB00FB37D8 /* Project 1: Libero Tracker */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 04198F2E216EB3DE00FB37D8 /* Build configuration list for PBXNativeTarget "Project 1" */;
+			buildConfigurationList = 04198F4E217303EC00FB37D8 /* Build configuration list for PBXNativeTarget "Project 1: Libero Tracker" */;
 			buildPhases = (
-				04198F18216EB3DC00FB37D8 /* Sources */,
-				04198F19216EB3DC00FB37D8 /* Frameworks */,
-				04198F1A216EB3DC00FB37D8 /* Resources */,
+				04198F38217303EB00FB37D8 /* Sources */,
+				04198F39217303EB00FB37D8 /* Frameworks */,
+				04198F3A217303EB00FB37D8 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Project 1";
-			productName = "Project 1";
-			productReference = 04198F1C216EB3DC00FB37D8 /* Project 1.app */;
+			name = "Project 1: Libero Tracker";
+			productName = "Project 1: Libero Tracker";
+			productReference = 04198F3C217303EB00FB37D8 /* Project 1: Libero Tracker.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		04198F14216EB3DC00FB37D8 /* Project object */ = {
+		04198F34217303EA00FB37D8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0940;
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Serena Buxton";
 				TargetAttributes = {
-					04198F1B216EB3DC00FB37D8 = {
+					04198F3B217303EB00FB37D8 = {
 						CreatedOnToolsVersion = 9.4.1;
 					};
 				};
 			};
-			buildConfigurationList = 04198F17216EB3DC00FB37D8 /* Build configuration list for PBXProject "Project 1" */;
+			buildConfigurationList = 04198F37217303EA00FB37D8 /* Build configuration list for PBXProject "Project 1: Libero Tracker" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -110,55 +107,54 @@
 				en,
 				Base,
 			);
-			mainGroup = 04198F13216EB3DC00FB37D8;
-			productRefGroup = 04198F1D216EB3DC00FB37D8 /* Products */;
+			mainGroup = 04198F33217303EA00FB37D8;
+			productRefGroup = 04198F3D217303EB00FB37D8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				04198F1B216EB3DC00FB37D8 /* Project 1 */,
+				04198F3B217303EB00FB37D8 /* Project 1: Libero Tracker */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		04198F1A216EB3DC00FB37D8 /* Resources */ = {
+		04198F3A217303EB00FB37D8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04198F2A216EB3DE00FB37D8 /* LaunchScreen.storyboard in Resources */,
-				04198F27216EB3DE00FB37D8 /* Assets.xcassets in Resources */,
-				04198F25216EB3DD00FB37D8 /* Main.storyboard in Resources */,
+				04198F4A217303EC00FB37D8 /* LaunchScreen.storyboard in Resources */,
+				04198F47217303EC00FB37D8 /* Assets.xcassets in Resources */,
+				04198F45217303EB00FB37D8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		04198F18216EB3DC00FB37D8 /* Sources */ = {
+		04198F38217303EB00FB37D8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04198F32216FCB0400FB37D8 /* subTracker.swift in Sources */,
-				04198F22216EB3DD00FB37D8 /* ViewController.swift in Sources */,
-				04198F20216EB3DD00FB37D8 /* AppDelegate.swift in Sources */,
+				04198F42217303EB00FB37D8 /* ViewController.swift in Sources */,
+				04198F40217303EB00FB37D8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		04198F23216EB3DD00FB37D8 /* Main.storyboard */ = {
+		04198F43217303EB00FB37D8 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				04198F24216EB3DD00FB37D8 /* Base */,
+				04198F44217303EB00FB37D8 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		04198F28216EB3DE00FB37D8 /* LaunchScreen.storyboard */ = {
+		04198F48217303EC00FB37D8 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				04198F29216EB3DE00FB37D8 /* Base */,
+				04198F49217303EC00FB37D8 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -166,7 +162,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		04198F2C216EB3DE00FB37D8 /* Debug */ = {
+		04198F4C217303EC00FB37D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -226,7 +222,7 @@
 			};
 			name = Debug;
 		};
-		04198F2D216EB3DE00FB37D8 /* Release */ = {
+		04198F4D217303EC00FB37D8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -280,36 +276,36 @@
 			};
 			name = Release;
 		};
-		04198F2F216EB3DE00FB37D8 /* Debug */ = {
+		04198F4F217303EC00FB37D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X99KUNQY2K;
-				INFOPLIST_FILE = "Project 1/Info.plist";
+				INFOPLIST_FILE = "Project 1: Libero Tracker/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "ATLAS.Project-1";
+				PRODUCT_BUNDLE_IDENTIFIER = "ATLAS.Project-1--Libero-Tracker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		04198F30216EB3DE00FB37D8 /* Release */ = {
+		04198F50217303EC00FB37D8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X99KUNQY2K;
-				INFOPLIST_FILE = "Project 1/Info.plist";
+				INFOPLIST_FILE = "Project 1: Libero Tracker/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "ATLAS.Project-1";
+				PRODUCT_BUNDLE_IDENTIFIER = "ATLAS.Project-1--Libero-Tracker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -319,25 +315,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		04198F17216EB3DC00FB37D8 /* Build configuration list for PBXProject "Project 1" */ = {
+		04198F37217303EA00FB37D8 /* Build configuration list for PBXProject "Project 1: Libero Tracker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				04198F2C216EB3DE00FB37D8 /* Debug */,
-				04198F2D216EB3DE00FB37D8 /* Release */,
+				04198F4C217303EC00FB37D8 /* Debug */,
+				04198F4D217303EC00FB37D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		04198F2E216EB3DE00FB37D8 /* Build configuration list for PBXNativeTarget "Project 1" */ = {
+		04198F4E217303EC00FB37D8 /* Build configuration list for PBXNativeTarget "Project 1: Libero Tracker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				04198F2F216EB3DE00FB37D8 /* Debug */,
-				04198F30216EB3DE00FB37D8 /* Release */,
+				04198F4F217303EC00FB37D8 /* Debug */,
+				04198F50217303EC00FB37D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 04198F14216EB3DC00FB37D8 /* Project object */;
+	rootObject = 04198F34217303EA00FB37D8 /* Project object */;
 }

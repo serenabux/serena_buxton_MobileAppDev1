@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  Project 1
+//  Project 1: Libero Tracker
 //
-//  Created by Serena Buxton on 10/10/18.
+//  Created by Serena Buxton on 10/13/18.
 //  Copyright © 2018 Serena Buxton. All rights reserved.
 //
 
