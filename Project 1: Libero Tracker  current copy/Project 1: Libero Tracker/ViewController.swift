@@ -180,7 +180,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func updateLibero(_ position: Int, _ team: Int, _ player: Int) -> Int{
+    func updateLibero(_ position: Int, _ team: Int, _ player: Int) -> Bool{
         let startIndex : Int
         let currentL: Int
         let currentR: Int
@@ -188,46 +188,82 @@ class ViewController: UIViewController, UITextFieldDelegate {
         var i: Int
         if team == 1{
             startIndex = 0
-            currentL = Team1L
-            currentR = Team1R
+            if Team1L != nil{
+                currentL = Team1L
+            }
+            else{
+                currentL = -1
+            }
+            if Team1R != nil{
+                currentR = Team1R
+            }
+            else{
+                currentR = -1
+            }
         }
         else{
             startIndex=2
-            currentL = Team2L
-            currentR = Team2R
+            if Team2L != nil{
+                currentL = Team2L
+            }
+            else{
+                currentL = -1
+            }
+            if Team2R != nil{
+                currentR = Team2R
+            }
+            else{
+                currentR = -1
+            }
         }
         if liberoPositions[startIndex] == -1{
             liberoPositions[startIndex] = position
             liberoPositions[startIndex+1] = (position+3)%6
             allPos[position]?.append(player)
-            return 1
+            return true
         }
         else{
             if position==liberoPositions[startIndex] || position==liberoPositions[startIndex+1]{
-                for j in 0...1{
+                for _ in 0...1{
                     i=liberoPositions[startIndex]
                     length = (allPos[i]?.count)!
                     if length>0{
-                        if allPos[i]![length-1] == currentL  {
-                            return 2
+                        if allPos[i]![length-1] == currentL   {
+                            if player == currentL{
+                                //Ignore since libero already in position
+                                return true
+                            }
+                            else{
+                                // Otherwise R is going in for L
+                                allPos[position]?.append(player)
+                                return true
+                            }
                         }
                         if allPos[i]![length-1] == currentR {
-                            return 3
+                            if player == currentR{
+                                //Ignore since libero already in position
+                                return true
+                            }
+                            else{
+                                // Otherwise L is going in for R
+                                allPos[position]?.append(player)
+                                return true
+                            }
                         }
                     }
                 }
                 allPos[position]?.append(player)
-                return 1
+                return true
             }
             else{
-                return 4
+                return false
             }
         }
     }
     
     //This function updates subs for non-libero transactions
-    //return true when successful and false when not
-    func updateSubs(_ position: Int, _ player: Int, _ team: Int) -> Bool{
+    //return 1 when successful and 2 when illegal sub, 3 when illegal sub with libero
+    func updateSubs(_ position: Int, _ player: Int, _ team: Int) -> Int{
         let libero: Int
         let rLibero: Int
         if team==1{
@@ -278,23 +314,23 @@ class ViewController: UIViewController, UITextFieldDelegate {
         if length>0{
             length = allPos[position]!.count
             if allPos[position]![length-1]==player{
-                return true
+                return 1
             }
             else if allPos[position]![length-1] == libero || allPos[position]![length-1] == rLibero{
                 if allPos[position]![length-2] != player{
                     //TODO make it throw the specific error
-                    return false
+                    return 3
                 }
                 else{
                     allPos[position]!.append(player)
-                    return true
+                    return 1
                 }
             }
             for i in 0...(length-1){
                 if allPos[position]![i]==player{
                     allPos[position]!.append(player)
                     subs[team-1]=subs[team-1]+1
-                    return true
+                    return 1
                 }
             }
         }
@@ -308,7 +344,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                     for j in 0...(length-1){
                         if allPos[i]![j]==player{
                             //throw error
-                            return false
+                            return 2
                         }
                     }
                 }
@@ -319,13 +355,134 @@ class ViewController: UIViewController, UITextFieldDelegate {
         if !firstPlayer{
             subs[team-1] = subs[team-1] + 1
         }
-        return true
+        return 1
     }
+    
     
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    
+    
+    func throwErrorPopup(_ textField: UITextField, _ errorCode: Int, _ position: Int, _ team: Int){
+        switch errorCode {
+        case 1:
+            //create a UIAlertController object
+            let alert=UIAlertController(title: "No Libero", message: "There is no libero declared. Alert 2nd Ref.", preferredStyle: UIAlertControllerStyle.alert)
+            //create UI alert action to the alert object
+            var okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {action in textField.text=""})
+            let length = (allPos[position]?.count)!
+            if length > 0 {
+                okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {action in textField.text=String(self.allPos[position]![length-1])})
+            }
+            //add alert to alert object
+            alert.addAction(okAction)
+            //present alert
+            present(alert, animated: true, completion: nil)
+        case 2:
+            //create a UIAlertController object
+            let alert=UIAlertController(title: "No Second Libero", message: "There is no second libero declared. Alert 2nd Ref.", preferredStyle: UIAlertControllerStyle.alert)
+            //create UI alert action to the alert object
+            var okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {action in textField.text=""})
+            let length = (allPos[position]?.count)!
+            if length > 0 {
+                okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {action in textField.text=String(self.allPos[position]![length-1])})
+            }
+            //add alert to alert object
+            alert.addAction(okAction)
+            //present alert
+            present(alert, animated: true, completion: nil)
+        case 3:
+            //create a UIAlertController object
+            let alert=UIAlertController(title: "Illegal Sub", message: "Player has already played in another position. Alert 2nd Ref.", preferredStyle: UIAlertControllerStyle.alert)
+            //create UI alert action to the alert object
+            var okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {action in textField.text=""})
+            let length = (allPos[position]?.count)!
+            if length > 0 {
+                okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {action in textField.text=String(self.allPos[position]![length-1])})
+            }
+            //add alert to alert object
+            alert.addAction(okAction)
+            //present alert
+            present(alert, animated: true, completion: nil)
+        case 4:
+            //create a UIAlertController object
+            let alert=UIAlertController(title: "Too many subs", message: "This team has already used 15 subs. Alert 2nd Ref.", preferredStyle: UIAlertControllerStyle.alert)
+            //create UI alert action to the alert object
+            var okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {action in textField.text=""})
+            let length = (allPos[position]?.count)!
+            if length > 0 {
+                okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {action in textField.text=String(self.allPos[position]![length-1])})
+            }
+            
+            //add alert to alert object
+            alert.addAction(okAction)
+            //present alert
+            present(alert, animated: true, completion: nil)
+        case 5:
+            //create a UIAlertController object
+            let alert=UIAlertController(title: "Illegal Libero Sub", message: "The libero can not go into this position. ", preferredStyle: UIAlertControllerStyle.alert)
+            //create UI alert action to the alert object
+            var okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {action in textField.text=""})
+            let length = (allPos[position]?.count)!
+            if length > 0 {
+                okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {action in textField.text=String(self.allPos[position]![length-1])})
+            }
+            
+            //add alert to alert object
+            alert.addAction(okAction)
+            //present alert
+            present(alert, animated: true, completion: nil)
+        case 6:
+            //create a UIAlertController object
+            let alert=UIAlertController(title: "Illegal Libero Sub", message: "The player that was in before the libero needs to go in before a sub can take place. Alert 2nd ref. ", preferredStyle: UIAlertControllerStyle.alert)
+            //create UI alert action to the alert object
+            var okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {action in textField.text=""})
+            let length = (allPos[position]?.count)!
+            if length > 0 {
+                let s : String
+                let last = self.allPos[position]![length-1]
+                if team == 1{
+                    if last == Team1L{
+                        s = "L"
+                    }
+                    else{
+                        s = "R"
+                    }
+                }
+                else{
+                    if last == Team2L{
+                        s = "L"
+                    }
+                    else{
+                        s = "R"
+                    }
+                }
+                okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {action in textField.text=s})
+            }
+            
+            //add alert to alert object
+            alert.addAction(okAction)
+            //present alert
+            present(alert, animated: true, completion: nil)
+        default:
+            return
+        }
+        return
+    }
+    
+
+    @IBAction func tapRecognized(_ sender: Any) {
+        Pos1Text.resignFirstResponder()
+        Pos2Text.resignFirstResponder()
+        Pos3Text.resignFirstResponder()
+        Pos4Text.resignFirstResponder()
+        Pos5Text.resignFirstResponder()
+        Pos6Text.resignFirstResponder()
+        liberoText.resignFirstResponder()
+        rLiberoText.resignFirstResponder()
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -357,7 +514,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             }
             var lib: Int! = Team1L
             var rlib: Int! = Team1R
-            var res: Int! = -1
+            var res: Bool = true
             if (team==2){
                 lib = Team2L
                 rlib = Team2R
@@ -368,18 +525,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 }
                 else{
                     //Throw error that there is no libero
-                    //create a UIAlertController object
-                    let alert=UIAlertController(title: "No Libero", message: "There is no libero declared. Alert 2nd Ref.", preferredStyle: UIAlertControllerStyle.alert)
-                    //create UI alert action to the alert object
-                    var okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {action in textField.text=""})
-                    //add alert to alert object
-                    alert.addAction(okAction)
-                    //present alert
-                    present(alert, animated: true, completion: nil)
-                    let length = (allPos[position]?.count)!
-                    if length > 0 {
-                        okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {action in textField.text=String(self.allPos[position]![length-1])})
-                    }
+                    throwErrorPopup(textField, 1, position, team)
                     return
                 }
             }
@@ -392,74 +538,50 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 }
                 else{
                     //Throw error that there is no libero
-                    //create a UIAlertController object
-                    let alert=UIAlertController(title: "No Second Libero", message: "There is no second libero declared. Alert 2nd Ref.", preferredStyle: UIAlertControllerStyle.alert)
-                    //create UI alert action to the alert object
-                    var okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {action in textField.text=""})
-                    //add alert to alert object
-                    alert.addAction(okAction)
-                    //present alert
-                    present(alert, animated: true, completion: nil)
-                    let length = (allPos[position]?.count)!
-                    if length > 0 {
-                        okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {action in textField.text=String(self.allPos[position]![length-1])})
-                    }
+                    throwErrorPopup(textField, 2, position, team)
                     return
                 }
             }
             else if (rlib != nil) && ((textField.text!) == String (rlib)){
                  res = updateLibero(position, team, rlib)
+                
             }
             else{
                 player = Int(textField.text!)!
                 if subs[team-1] < 15{
                     let success = updateSubs(position, player,team)
-                    if (success){
+                    if (success == 1){
                         subNumLabel.text=String(subs[team-1])
+                        return
                     }
                     else{
                         
                         //Throw error that player has already played in position
-                        //create a UIAlertController object
-                        let alert=UIAlertController(title: "Illegal Sub", message: "Player has already played in another position. Alert 2nd Ref.", preferredStyle: UIAlertControllerStyle.alert)
-                        //create UI alert action to the alert object
-                        var okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {action in textField.text=""})
-                        let length = (allPos[position]?.count)!
-                        if length > 0 {
-                            okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {action in textField.text=String(self.allPos[position]![length-1])})
+                        if (success==2){
+                            throwErrorPopup(textField, 3, position, team)
+                            return
                         }
-                        
-                        //add alert to alert object
-                        alert.addAction(okAction)
-                        //present alert
-                        present(alert, animated: true, completion: nil)
-                        //no need to continue so return
+                        else{
+                            throwErrorPopup(textField, 6, position, team)
+                            return
+                        }
                     }
                 }
                 else{
                     //Throw error that too many subs have occured
-                    //create a UIAlertController object
-                    let alert=UIAlertController(title: "Too many subs", message: "This team has already used 15 subs. Alert 2nd Ref.", preferredStyle: UIAlertControllerStyle.alert)
-                    //create UI alert action to the alert object
-                    var okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {action in textField.text=""})
-                    let length = (allPos[position]?.count)!
-                    if length > 0 {
-                        okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {action in textField.text=String(self.allPos[position]![length-1])})
-                    }
-                    
-                    //add alert to alert object
-                    alert.addAction(okAction)
-                    //present alert
-                    present(alert, animated: true, completion: nil)
-                    //no need to continue so return
+                    throwErrorPopup(textField, 4, position, team)
+                    return
                 }
                 
             }
-            
+            if (!res){throwErrorPopup(textField, 5, position,team)}
         }
         
     }
     
+    @IBAction func unwindSegue(_ segue: UIStoryboardSegue){
+        
+    }
     
     
     override func viewDidLoad() {
