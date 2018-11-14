@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Lab6</string>
+    <string name="toggle_On">Sweet</string>
+    <string name="toggle_Off">Savory</string>
+    <string-array name="meal">
+        <item>Drink</item>
+        <item>Main Course</item>
+        <item>Dessert</item>
+    </string-array>
+    <string name="radio1">$</string>
+    <string name="radio2">$$</string>
+    <string name="check1">main</string>
+    <string name="check2">side</string>
+    <string name="button">GO!</string>
+    <string name="switchOn">Traditional </string>
+    <string name="header">What Thanksgiving dish are you?</string>
+
+</resources>
