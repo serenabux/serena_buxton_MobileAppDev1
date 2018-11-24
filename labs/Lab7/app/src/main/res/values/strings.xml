@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Lab7</string>
+    <string name="header1">Santa\'s Coming To Town</string>
+    <string name="buttonOn">I\'m a believer</string>
+    <string name="buttonOff">Santa\'s not real</string>
+    <string name="buttonGO">HoHoHo</string>
+    <string name="textPlaceHolder">Name</string>
+</resources>
