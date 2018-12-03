@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">TimerTutorial</string>
+    <string name="start">Start</string>
+    <string name = "during">Cancel</string>
+</resources>
