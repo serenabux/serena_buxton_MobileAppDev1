@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Serenitea</string>
+    <string-array name="tea_types">
+        <item>Green Tea</item>
+        <item>Black Tea</item>
+        <item>Herbal Tea</item>
+        <item>Demo</item>
+    </string-array>
+    <string name="buttonBegin">Start</string>
+    <string name="buttonCancel">Cancel</string>
+    <string name="time">5:00</string>
+</resources>
