@@ -9,4 +9,17 @@
     <string name="buttonBegin">Start</string>
     <string name="buttonCancel">Cancel</string>
     <string name="time">5:00</string>
+    <string name="coolSteep">Cool to steep temperature </string>
+    <string name="coolDrink">Cool to desired drink temperature </string>
+    <string-array name="temps">
+        <item>180° F</item>
+        <item>170° F</item>
+        <item>160° F</item>
+        <item>150° F</item>
+        <item>140° F</item>
+        <item>130° F</item>
+        <item>120° F</item>
+        <item>110° F</item>
+        <item>100° F</item>
+    </string-array>
 </resources>

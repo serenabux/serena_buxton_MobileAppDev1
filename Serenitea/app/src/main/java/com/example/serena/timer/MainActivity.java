@@ -1,12 +1,15 @@
 package com.example.serena.timer;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -17,12 +20,18 @@ public class MainActivity extends Activity {
     private  ProgressBar progressBarTimer;
     private Spinner teaTypeSpinner;
     private TextView stageText;
+    private ImageButton callSettingsButton;
+    //Reference for using media player: https://developer.android.com/guide/topics/media/mediaplayer
+    private  MediaPlayer mediaPlayer;
 
-    private int desiredDrinkTemp;
     private int stage=0;
     private int tea = 1;
     private int buttonState = 0 ; //0 if begin, 1 if stop, 2 if okay, 3 if make another
 
+    //Reference material for timer:
+    //https://www.youtube.com/watch?v=zmjfAcnosS0
+    //https://www.youtube.com/watch?v=SaTx-gLLxWQ
+    //https://developer.android.com/reference/java/util/Timer
     private CountDownTimer countDownTimer;
     private final int convertToMilli = 60000;
     private double totTime;
@@ -30,7 +39,8 @@ public class MainActivity extends Activity {
     private double progress = 100;
     private  boolean timeRunning;
 
-
+    TeaSettings objTeaSet = new TeaSettings();
+    private int desiredDrinkTemp = 140;
 
 
 
@@ -44,6 +54,9 @@ public class MainActivity extends Activity {
         progressBarTimer = findViewById(R.id.progressBar);
         teaTypeSpinner = findViewById(R.id.spinner);
         stageText = findViewById(R.id.stageTextView);
+        callSettingsButton = findViewById(R.id.settingsButton);
+        mediaPlayer = MediaPlayer.create(this, R.raw.alarm);
+
 
 
         teaTypeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -99,6 +112,7 @@ public class MainActivity extends Activity {
                 else if (buttonState == 2){
                     setTeaInfo();
                     countdownButton.setText("Start");
+                    mediaPlayer.stop();
                     buttonState = 0;
                 }
 
@@ -106,6 +120,14 @@ public class MainActivity extends Activity {
 
             }
         });
+
+        callSettingsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                callIntent();
+            }
+        });
+
 
         // check for recovering the instance state
         if (savedInstanceState !=null){
@@ -134,10 +156,33 @@ public class MainActivity extends Activity {
         super.onSaveInstanceState(outState);
     }
 
-    public double coolingTime(int desiredtemp, double overallTime){
+
+    //Additional resource for passing data back from an intent
+    //https://developer.android.com/reference/android/app/Activity
+    //https://developer.android.com/training/basics/intents/result#java
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Log.i("onActivityResult", "here");
+        Log.i("onActivityResult", Integer.toString(requestCode));
+        if (requestCode == 1) { // Please, use a final int instead of hardcoded int value
+            Log.i("onActivityResult", Integer.toString(resultCode));
+            //if (resultCode == 1) {
+                desiredDrinkTemp = data.getExtras().getInt("desiredDrinkTemp");
+                Log.i("onActivityResult", Integer.toString(desiredDrinkTemp));
+            //}
+        }
+    }
+
+    public void callIntent(){
+        Intent intent = new Intent(this, Settings.class);
+        startActivityForResult(intent,1);
+    }
+    public double coolingTime( double overallTime){
         //Newton's law of cooling, using a k value of -7.64563E-7, answer is in milliseconds so no conversion is needed
-        double tmp = 1.0000/(desiredtemp-72);
-        double time = 1307940*(Math.log(1.00000/(desiredtemp-72))+4.94164);
+        Log.i("main", Integer.toString(desiredDrinkTemp));
+        double tmp = 1.0000/(desiredDrinkTemp-72);
+        double time = 1307940*(Math.log(1.00000/(desiredDrinkTemp-72))+4.94164);
         double cooltime = time - overallTime;
         if (cooltime <= 0)  cooltime=0;
         return cooltime;
@@ -178,7 +223,7 @@ public class MainActivity extends Activity {
                     }
                     case(2):{
                         //Get the cool time for the desired drink temp
-                        totTime = coolingTime(140, 360000);
+                        totTime = coolingTime( 360000);
                         timeLeftInMilliseconds = (long)totTime;
                         progressBarTimer.setProgress(100);
                         stageText.setText("Cool to Desired Drink Temp");
@@ -205,7 +250,7 @@ public class MainActivity extends Activity {
                     }
                     case(2):{
                         //Get the cool time for the desired drink temp
-                        totTime = coolingTime(140, 300000);
+                        totTime = coolingTime( 300000);
                         timeLeftInMilliseconds = (long)totTime;
                         progressBarTimer.setProgress(100);
                         stageText.setText("Cool to Desired Drink Temp");
@@ -231,7 +276,7 @@ public class MainActivity extends Activity {
                     }
                     case(2):{
                         //Get the cool time for the desired drink temp
-                        totTime = coolingTime(140, 420000);
+                        totTime = coolingTime(420000);
                         timeLeftInMilliseconds = (long)totTime;
                         progressBarTimer.setProgress(100);
                         stageText.setText("Cool to Desired Drink Temp");
@@ -262,7 +307,7 @@ public class MainActivity extends Activity {
                         }
                     case(2):{
                         //Get the cool time for the desired drink temp
-                        totTime = coolingTime(140, 14000);
+                        totTime = coolingTime(14000);
                         timeLeftInMilliseconds = (long)totTime;
                         progressBarTimer.setProgress(100);
                         stageText.setText("Cool to Desired Drink Temp");
@@ -306,6 +351,8 @@ public class MainActivity extends Activity {
                     break;
                 }
             }
+
+            mediaPlayer.start();
             stage = (stage + 1) % 3;
             timeRunning = false;
             buttonState = 2;
