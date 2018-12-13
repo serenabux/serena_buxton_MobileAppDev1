@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.Spinner;
 import android.widget.Switch;
 
@@ -15,37 +16,84 @@ public class Settings extends Activity {
     private Switch coolSteepSwitch;
     private Switch coolDrinkSwitch;
     private Spinner drinkTempSpinner;
-    private Button tmpButton;
     private int drinkTemp;
+    private boolean steep;
+    private boolean desiredTemp;
 
     TeaSettings objTeaSet = new TeaSettings();
 
+
     Intent resultIntent = new Intent();
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
+        Intent recieveIntent = getIntent();
+        drinkTemp = recieveIntent.getIntExtra("desiredDrinkTemp", 140);
+        Log.i("drinkTemp", Integer.toString(drinkTemp));
+        steep = recieveIntent.getBooleanExtra("coolToSteep", true);
+        desiredTemp = recieveIntent.getBooleanExtra("coolToDesired",true);
+
+
+
+
         coolSteepSwitch = findViewById(R.id.switchSteepTemp);
         coolDrinkSwitch = findViewById(R.id.switchDrinkTemp);
         drinkTempSpinner = findViewById(R.id.spinnerDrinkTemps);
 
-        tmpButton = findViewById(R.id.button);
 
-        coolSteepSwitch.setChecked(objTeaSet.isCoolToSteep());
-        coolDrinkSwitch.setChecked(objTeaSet.isCoolToDesired());
-        drinkTemp = objTeaSet.getDesiredDrinkTemp();
+
+        coolSteepSwitch.setChecked(steep);
+
+        coolDrinkSwitch.setChecked(desiredTemp);
+
+        Log.i("drinkTemp", Integer.toString(drinkTemp));
         switch (drinkTemp){
-            case(180): drinkTempSpinner.setSelection(0);
-            case(170):drinkTempSpinner.setSelection(1);
-            case(160):drinkTempSpinner.setSelection(2);
-            case(150):drinkTempSpinner.setSelection(3);
-            case(140):drinkTempSpinner.setSelection(4);
-            case(130):drinkTempSpinner.setSelection(5);
-            case(120):drinkTempSpinner.setSelection(6);
-            case(110):drinkTempSpinner.setSelection(7);
-            case(100):drinkTempSpinner.setSelection(8);
+            case(180): {
+                drinkTempSpinner.setSelection(0);
+                break;
+            }
+            case(170):{
+                drinkTempSpinner.setSelection(1);
+                break;
+            }
+            case(160):{
+                drinkTempSpinner.setSelection(2);
+                break;
+            }
+            case(150):{
+                drinkTempSpinner.setSelection(3);
+                break;
+            }
+            case(140):{
+                drinkTempSpinner.setSelection(4);
+                break;
+            }
+            case(130):{
+                drinkTempSpinner.setSelection(5);
+                break;
+            }
+            case(120):{
+                drinkTempSpinner.setSelection(6);
+                break;
+            }
+            case(110):{
+                drinkTempSpinner.setSelection(7);
+                break;
+            }
+            case(100):{
+                drinkTempSpinner.setSelection(8);
+                break;
+            }
+            case(210):{
+                drinkTempSpinner.setSelection(9);
+                break;
+            }
             default:drinkTempSpinner.setSelection(4);
         }
 
@@ -89,9 +137,15 @@ public class Settings extends Activity {
                         drinkTemp = 100;
                         break;
                     }
+                    case(9):{
+                        drinkTemp = 210;
+                        break;
+                    }
                 }
 
                 resultIntent.putExtra("desiredDrinkTemp", drinkTemp);
+                resultIntent.putExtra("coolDesire",desiredTemp);
+                resultIntent.putExtra("coolSteep", steep);
                 setResult(Activity.RESULT_OK, resultIntent);
                // objTeaSet.setDesiredDrinkTemp(drinkTemp);
                 //Log.i("setSettings", Integer.toString(drinkTemp));
@@ -105,6 +159,27 @@ public class Settings extends Activity {
             }
         });
 
+    coolSteepSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+            steep = isChecked;
+            objTeaSet.setCoolToSteep(steep);
+            resultIntent.putExtra("desiredDrinkTemp", drinkTemp);
+            resultIntent.putExtra("coolDesire",desiredTemp);
+            resultIntent.putExtra("coolSteep", steep);
+            setResult(Activity.RESULT_OK, resultIntent);
+        }
+    });
+
+    coolDrinkSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+            desiredTemp = isChecked;
+            objTeaSet.setCoolToDesired(desiredTemp);
+            resultIntent.putExtra("desiredDrinkTemp", drinkTemp);
+            resultIntent.putExtra("coolDesire",desiredTemp);
+            resultIntent.putExtra("coolSteep", steep);
+            setResult(Activity.RESULT_OK, resultIntent);
+        }
+    });
 
     }
 

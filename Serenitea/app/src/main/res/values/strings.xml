@@ -12,6 +12,7 @@
     <string name="coolSteep">Cool to steep temperature </string>
     <string name="coolDrink">Cool to desired drink temperature </string>
     <string-array name="temps">
+
         <item>180° F</item>
         <item>170° F</item>
         <item>160° F</item>
@@ -21,5 +22,8 @@
         <item>120° F</item>
         <item>110° F</item>
         <item>100° F</item>
+        <item>Demo</item>
     </string-array>
+
+    <string name="suggest">140° is regarded as the ideal drinking temperature for tea but it is recommended that you experiment and find your desired drink temperature</string>
 </resources>
