@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Pizza</string>
+    <string name="header">Build My Pizza</string>
+    <string name="name">Pizza Name</string>
+    <string name="toggleOn">Red</string>
+    <string name="toggleOff">White</string>
+    <string name="crustTitle">Crust</string>
+    <string name="radio1">thin</string>
+    <string name="radio2">thick</string>
+    <string name="check1">Pepperoni</string>
+    <string name="check2">Mushrooms</string>
+    <string name="check3">Onions</string>
+    <string name="check4">Sausage</string>
+    <string-array name="size">
+        <item>
+            small
+        </item>
+        <item>
+            medium
+        </item>
+        <item>
+            large
+        </item>
+    </string-array>
+    <string name="glutenFree">Gluten-free</string>
+    <string name="pizzaButton">PIZZA</string>
+    <string name="findPizzaButton">Find Pizza!</string>
+    <string name="findPizzaHeader">You should check out</string>
+</resources>
